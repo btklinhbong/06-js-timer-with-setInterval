@@ -5,7 +5,7 @@ const incrementButton = document.querySelector('#incrementButton');
 const startButton = document.querySelector('#startButton');
 
 // Initialize the timer value
-let timerValue = 20;
+let timerValue = 10;
 
 // Function to start the countdown
 function startCountdown() {
@@ -14,6 +14,11 @@ function startCountdown() {
         timerValue--;
         // Update the timer display
         timerDisplay.textContent = timerValue;
+
+        // Check if 10 seconds have passed (timer hits 10) and counter is 10 or more
+        if (timerValue <= 10 && counterValue === 10) {
+            confetti();
+        }
 
         // Stop the countdown when the timer reaches 0
         if (timerValue <= 0) {
